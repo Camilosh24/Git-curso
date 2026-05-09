@@ -66,6 +66,10 @@ def eliminar():
         if buscar == i.codigo:
             productos.remove(i)
             print("producto eliminado correctamente")
+
+def eliminarTodo():
+    productos.clear()
+    print("Todo el inventario fue eliminado")
              
 def menu():
     seguir="si"
@@ -76,9 +80,10 @@ def menu():
         print("------3 buscar productos--------")
         print("------4 modificar productos-----")
         print("------5 eliminar productos-------")
-        print("--------------6 salir -------------")
+        print("------6 eliminar todo-----------")
+        print("--------------7 salir -------------")
         opcion=int(input("digite un numero del menu: "))
-        while opcion>7 or opcion < 1:
+        while opcion>8 or opcion < 1:
             print("error numero no valido")
             opcion=int(input("digite un numero del menu: "))
                     
@@ -92,6 +97,8 @@ def menu():
             modificar()
         elif opcion==5:
             eliminar()
+        elif opcion==6:
+            eliminarTodo()
         else:
             exit()
         
