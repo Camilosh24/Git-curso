@@ -1,11 +1,12 @@
 productos=[]
 class registro:
-    def __init__(self,name,codigo,cant_p,valorU,valor_t):
+    def __init__(self,name,codigo,cant_p,valorU,valor_t,provedor):
         self.name=name
         self.codigo=codigo
         self.cant_p=cant_p
         self.valorU=valorU
         self.valor_t=valor_t
+        self.provedor=provedor
 
     def listar(self):
         print("------------Registro------------")
@@ -14,6 +15,7 @@ class registro:
         print("cantidad de productos: ", self.cant_p)
         print("valor por unidad: ", self.valorU)
         print("valor total: ", self.valor_t)
+        print("provedor: ", self.provedor)
         
     def editar(self,cant_p,valorU,valor_t):
         self.cant_p=cant_p
@@ -27,9 +29,10 @@ def registrar():
     codigo=int(input("codigo del producto: "))
     cant_p=int(input("cantidad de productos: "))
     valorU=int(input("valor unidad: "))
+    provedor=str(input("Provedor: "))
     valor_t=cant_p*valorU
     print("valor total: ",valor_t)
-    objeto=registro(name,codigo,cant_p,valorU,valor_t)
+    objeto=registro(name,codigo,cant_p,valorU,valor_t,provedor)
     productos.append(objeto)
         
 def mostrar():
