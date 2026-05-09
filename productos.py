@@ -1,11 +1,12 @@
 productos=[]
 class registro:
-    def __init__(self,name,codigo,cant_p,valorU,valor_t):
+    def __init__(self,name,codigo,cant_p,valorU,valor_t,provedor):
         self.name=name
         self.codigo=codigo
         self.cant_p=cant_p
         self.valorU=valorU
         self.valor_t=valor_t
+        self.provedor=provedor
 
     def listar(self):
         print("------------Registro------------")
@@ -14,6 +15,7 @@ class registro:
         print("cantidad de productos: ", self.cant_p)
         print("valor por unidad: ", self.valorU)
         print("valor total: ", self.valor_t)
+        print("provedor: ", self.provedor)
         
     def editar(self,cant_p,valorU,valor_t):
         self.cant_p=cant_p
@@ -27,9 +29,10 @@ def registrar():
     codigo=int(input("codigo del producto: "))
     cant_p=int(input("cantidad de productos: "))
     valorU=int(input("valor unidad: "))
+    provedor=str(input("Provedor: "))
     valor_t=cant_p*valorU
     print("valor total: ",valor_t)
-    objeto=registro(name,codigo,cant_p,valorU,valor_t)
+    objeto=registro(name,codigo,cant_p,valorU,valor_t,provedor)
     productos.append(objeto)
         
 def mostrar():
@@ -63,6 +66,10 @@ def eliminar():
         if buscar == i.codigo:
             productos.remove(i)
             print("producto eliminado correctamente")
+
+def eliminarTodo():
+    productos.clear()
+    print("Todo el inventario fue eliminado")
              
 def menu():
     seguir="si"
@@ -73,9 +80,10 @@ def menu():
         print("------3 buscar productos--------")
         print("------4 modificar productos-----")
         print("------5 eliminar productos-------")
-        print("--------------6 salir -------------")
+        print("------6 eliminar todo-----------")
+        print("--------------7 salir -------------")
         opcion=int(input("digite un numero del menu: "))
-        while opcion>7 or opcion < 1:
+        while opcion>8 or opcion < 1:
             print("error numero no valido")
             opcion=int(input("digite un numero del menu: "))
                     
@@ -89,6 +97,8 @@ def menu():
             modificar()
         elif opcion==5:
             eliminar()
+        elif opcion==6:
+            eliminarTodo()
         else:
             exit()
         
